@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodlandchi Survival v2.2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <aside class="stats-panel">
+            <h2>Estado</h2>
+            <div class="stat-box"><p>Salud: <span id="health">100</span>%</p></div>
+            <div class="stat-box"><p>Energía: <span id="energy">100</span>%</p></div>
+            <div class="stat-box"><p>Hambre: <span id="hunger">50</span>%</p></div>
+            <hr>
+            <p class="coin-display">Monedas: <span id="coins">230</span> 🪙</p>
+            
+            <div id="pet-selector" class="hidden">
+                <p>Cambiar Mascota:</p>
+                <button onclick="changePetType('dog')">Perro</button>
+                <button onclick="changePetType('larva')">Larva</button>
+            </div>
+        </aside>
+
+        <div class="central-panel">
+            <main id="game-screen" class="bg-space">
+                <div id="death-screen" class="hidden">
+                    <img src="Letrero_muerte.png" alt="Muerte">
+                    <button onclick="reiniciarJuego()" class="retry-button">REINTENTAR</button>
+                </div>
+                <div id="pet-container">
+                    <img id="pet-sprite" src="idle_dog.webp" alt="Mascota">
+                </div>
+                <div id="win-screen" class="hidden">
+                    <h1>¡Has cuidado bien al perro!</h1>
+                    <button onclick="reiniciarJuego()" class="retry-button">VOLVER A JUGAR</button>
+                </div>
+            </main>
+
+            <div class="actions">
+                <button id="btn-feed" onclick="handleAction('feed')">Alimentar</button>
+                <button id="btn-play" onclick="handleAction('play')">Jugar</button>
+                <button id="btn-clean" onclick="handleAction('clean')">Limpiar</button>
+                <button id="btn-sleep" onclick="handleAction('toggleSleep')">DORMIR</button>
+            </div>
+        </div>
+
+        <section class="shop-panel">
+            <h2>Tienda</h2>
+            <div class="shop-item">
+                <p>Fondo Playa (100 🪙)</p>
+                <button id="btn-beach" onclick="handlePurchase('beach', 100)">Comprar</button>
+            </div>
+            <div class="shop-item">
+                <p>Mascota Larva (300 🪙)</p>
+                <button id="btn-larva" onclick="handlePurchase('larva', 300)">Desbloquear</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
